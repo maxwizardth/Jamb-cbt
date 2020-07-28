@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<body>
+	<style type="text/css">
+		div{width: 50%;
+      margin-top: 3vh;}
+        h2{font-size: 33px;
+            margin-top:0px;
+            color:white;
+            background: #456a33;}
+            p{width:66%;
+            height: 30% }
+            h6{height: 0vh;
+                width:0vw;
+                }
+                header{ background:#456a33;margin:0px;
+                position: fixed;
+                width: 100vw;
+                height:  15vh;
+                margin-top: -3vh;
+                 }
+                button{height: 3vh;
+                    width: 9vw;}
+            h3{margin-top: -12px;
+                font-size: 33px;
+               }
+        body{background: linear-gradient(to bottom left,#990044,red,orange,yellow,green,blue,indigo,violet,pink);
+            color:white;}
+	</style>
+  <header>
+	<h2>MAXWIZARD-FOOTBALL VEDIO CAMP</h2>
+	<h3>watch all live score vedio </h3>
+  </header>
+	<div id="myData"></div>
+
+<script>
+    
+	fetch('https://www.scorebat.com/video-api/v1/')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                appendData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
+        function appendData(data) {
+          
+            var mainContainer = document.getElementById("myData");
+            for (var i =0; i <65; i++) {
+                var div = document.createElement("h1");
+                div.innerHTML = 'Name: ' + data[i].title+ '<br>Date:'+data[i].date + '<br>' + data[i].embed+ '<br> ';
+                mainContainer.appendChild(div);
+            }
+        }
+        </script>
+</body>
+</html>
