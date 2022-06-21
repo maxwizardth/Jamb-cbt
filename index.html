@@ -14,7 +14,8 @@
 <body>
 	<style type="text/css">
 		a{width: all;
-			margin-top: 5px
+			margin-top: 5px;
+			background: inherit;
 		}
 	    li{text-align: center;}
 		.btn{margin-left: 12px;
@@ -27,6 +28,7 @@
 			width: 33px;
 			}
          .container{padding: 9px}
+         .right{background: seagreen;}
 		
 	</style>
 <div class="container">
@@ -40,8 +42,8 @@
 </div>
 </div>
 	<div class="container">
-		<button class="btn btn-primary" onclick="Previous()">Previous</button>
-		<button class="btn btn-primary" onclick="Next()">Next</button>
+		<button class="btn btn-primary" onclick="previous()">Previous</button>
+		<button class="btn btn-primary" onclick="nextQuest()">Next</button>
 		<button class="btn btn-danger" onclick="marking()">Submit</button>
 		<ul class="pagination row" id="goto">
 
@@ -51,37 +53,135 @@
 
 	
 </script>
+
 <script type="text/javascript">
-var data;
-		fetch("https://questions.aloc.com.ng/api/v2/m?subject=mathematics", { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', 'AccessToken': 'ALOC-d31727d680059a2b635e' }, method: "GET", }) .then(function (response) {
-                return response.json();}).then(function(respond){ console.log(respond)
-                	data=respond.data
-             }) .catch(function(res){ console.log(res) })
-        
 
-counter={index:0,}
-	console.log(data);
 
-  const p = document.createElement("h3");
-  p.setAttribute('class', `question-item`);
-  p.setAttribute('data-key', data[1].id);
-  p.innerHTML = data[1].question+'<br>'
-  document.getElementById('questions').appendChild(p)
+function appendD(data) {
+  const questDiv = document.createElement("div");
+  questDiv.setAttribute('class', `question container`);
+  const h3 = document.createElement("h3");
+  h3.setAttribute('class', `question-item`);
+  h3.setAttribute('data-key', data.id);
+  h3.innerHTML = counter.questIndex + '. '+data.question+'<br>'
+  questDiv.appendChild(h3)
   var options=['a','b','c','d']
-  for(index in options){
-  radioOption=data[1].option[options[index]]
+  counter.answers[counter.questIndex-1]=data.answer
+  for(let property of options){
+  radioOption=data.option[property]
   input = document.createElement("input");
   input.setAttribute('class', `form-check-input`);
   input.setAttribute('type', `radio`);
-  input.setAttribute('name', data[1].id);
+  input.setAttribute('name', counter.questIndex);
   input.setAttribute('value', radioOption);
+  input.setAttribute('data-key', property)
+
   div=document.createElement('div')
   div.setAttribute('class', `form-check`)
   input.setAttribute('class', `form-check-input`)
   label=document.createElement('label')
-  labelText=document.createTextNode(radioOption)
+  labelText=document.createTextNode(property.toUpperCase()+'. '+radioOption)
   label.appendChild(labelText)
   div.appendChild(input)
   div.appendChild(label)
-  document.getElementById('questions').appendChild(div)
+  questDiv.appendChild(div)
+  document.getElementById('questions').appendChild(questDiv)
+
 }
+counter.questIndex+=1
+}
+
+function active_question(activeQuestion=0){
+	activeQuestion=activeQuestion<0?0:activeQuestion>39?39:activeQuestion
+  //this is to make sure that the user see the last quest when reaching the first and still clickiing previous
+  var questElements=document.getElementsByClassName('question')
+          for(var i=0;i<questElements.length;i++){
+            questElements[i].style.display='none'}
+           questElements[activeQuestion].style.display='block';
+           counter.gotoIndex=activeQuestion }
+
+
+
+function nextQuest(argument) {
+	counter.gotoIndex++
+	active_question(counter.gotoIndex)
+}
+function previous(argument) {
+	counter.gotoIndex--
+	active_question(counter.gotoIndex)
+}
+
+
+
+    function user_answer() { 	
+  for (var i = 0; i < all_radio.length; i++) {
+    if (all_radio[i].checked) {
+      UserQuest_no=all_radio[i].name-1;
+      user_answer=all_radio[i].dataset.key;
+      counter.userAnswers[UserQuest_no]=user_answer;
+      counter.answers[UserQuest_no]=data[UserQuest_no].answer;
+      li=document.getElementsByClassName('page-link');
+      li[UserQuest_no].style.backgroundColor='seaGreen';
+      li[UserQuest_no].style.color='white';
+    }
+  }}
+
+
+function createGoto() {
+    var ul=document.getElementById('goto')
+    for(var i=1;i<41;i++){
+    li=document.createElement('li');
+    li.setAttribute('class',"page-item col-sm-2 text-center");
+    a=document.createElement('a');
+    a.setAttribute('class',"page-link text-center");
+    a.setAttribute('href',"#");
+    start=eval(i-1);
+    go='active_question('+start+')';
+    a.setAttribute('onclick',go)
+    number=document.createTextNode(i);
+    a.appendChild(number);//
+    li.appendChild(a);
+    ul.appendChild(li)}
+    }
+ 
+
+function show_wrong() {         
+  for (var i = 0; i < all_radio.length; i++) {
+  	num=all_radio[i].name-1;
+  	
+ 
+    if((all_radio[i].checked&&counter.answers[num]!=counter.userAnswers[num])|(!(all_radio[i].checked)&&counter.answers[num]==all_radio[i].dataset.key))
+        {all_radio[i].parentNode.style.background='red';}
+    if(counter.answers[num]==all_radio[i].dataset.key&&all_radio[i].checked)
+    	{   
+    		all_radio[i].parentNode.style.backgroundColor='seaGreen';
+    	}
+    }
+    }
+
+
+function marking() {
+	show_wrong()
+}
+var counter={questIndex:1,gotoIndex:0,
+userAnswers:new Array(),answers:new Array(),
+correct:0}
+var all_radio =document.getElementsByClassName('form-check-input')
+var data;
+	fetch("https://questions.aloc.com.ng/api/v2/m?subject=chemistry", { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', 'AccessToken': 'ALOC-d31727d680059a2b635e' }, method: "GET", }) .then(function (response) {
+               return response.json();}).then(function(respond){ 
+            	data=respond.data
+            	console.log(data)
+            	start(data)
+             }) .catch(function(res){ console.log(res) })
+        
+function start(data){
+data.map(appendD)
+
+active_question()
+createGoto()
+  document.body.addEventListener('click',user_answer)
+}
+</script>
+</body>
+</html>
