@@ -1,167 +1,87 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
-	 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <meta name="viewport" content="width=device-width, initial-scale=0.8">
+	 <meta name="viewport" content="width=device-width, initial-scale=0.5">
   <meta charset="utf-8">
 
-<style type="text/css">
-
-
-	.header{background: #22002a;
-		color: #fff;
-	     padding: 10px;
-	     margin-bottom: -10px}
-	.table-responsive{height: 100%;
-		background:#444444;
-		margin-top: 0px
-	    }
-	.header,.table-responsive{
-	          padding: 15px;
-	          }
-	table{background: #152009;}
-	</style>
-</head>
-
-<body>
-	
-
-	
-	<div class="header">
-	<h1 >Maxwizard Covid Research </h1>
-	<h2 id="results">COVID19 Statistics Report.</h2>
-	</div>
-    <div class="table-responsive">
-	<table  class="table table-dark">
-		<thead>
-		<tr >
-		<th id="Index" rowspan="2" >Index</th>
-		<th id="continent" rowspan="2" >Continents</th>
-		<th id="country" rowspan="2" >Country</th>
-		<th id="population" rowspan="2" >Population</th>
-		<th id="new" >new case</th>
-		<th id="active" >active case</th>
-		<th id="critical" >critical case</th>
-		<th id="recovered" >recovered</th>
-		<th id="total" >total case</th>
-		<th id="day" rowspan="2" >Day</th>
-		<th id="New" >New death</th>
-		<th id="total2" >Death total</th>
-		<th id="tests" >tests total</th>
-		
-		
-
-		</tr>
-		</thead>
-		<tbody id="table">
-			
-		</tbody>
-	</table>
-    </div>
-    <h3>Itz the guy Maxwiz...</h3>
-   
-</body>
- <script type="text/javascript" src="covid"></script>
-<script>
-       function GetdatainTable() {var colmn=[];
-    colmn[0]="i";
-	colmn[1]="data.response[i].continent";
-    colmn[2]='data.response[i].country';
-    colmn[3]='data.response[i].population';
-    colmn[4]='data.response[i].cases.new';
-    colmn[5]='data.response[i].cases.active';
-    colmn[6]='data.response[i].cases.critical';
-    colmn[7]='data.response[i].cases.recovered';
-    colmn[8]='data.response[i].cases.total';
-    colmn[9]='data.response[i].day';
-    colmn[10]='data.response[i].deaths.new';
-    colmn[11]='data.response[i].deaths.total';
-   colmn[12]='data.response[i].tests.total';
-			var tr=document.createElement("tr");
-          for(var u=0;u<13;u++){
-		var colmnData=colmn[u];
-		var td=document.createElement("td");
-		var dataInTable=document.createTextNode(colmnData);
-		td.appendChild(dataInTable);
-		tr.appendChild(td);
-		document.getElementById('table').appendChild(tr);
-		}}
-		
-
-
-
-// i fetch the api for covid19 and that is the code below
-	fetch("https://covid-193.p.rapidapi.com/statistics", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "covid-193.p.rapidapi.com",
-		"x-rapidapi-key": "5e4331f760mshe0ce5b3e2ed365fp1cf19cjsn3ca0dcdb9d67"
-	}
-})
-    //convert to json
-            .then(function (response) {
-                return response.json();
-            })
-            //here i call the function to handle the data
-            .then(function (data) {
-                console.log(data);
-
-                appendData(data)
-            }) // if any error happen so console log help here
-            .catch(function (err) {
-                console.log('error: ' + err);
-            });
-            //function to handle the data for me
-        function appendData(data) {
-        allDataGotten=data
-        var div = document.getElementById("results");
-        div.innerHTML +="<br>Result: "+data.results;
-        // i need many array sice the data is  array of object
-       for (var i=0;i<data.response.length;i++){var colmn=[];
-    colmn[0]=(i+1); //this is my index data
-	colmn[1]=data.response[i].continent;
-    colmn[2]=data.response[i].country;
-    colmn[3]=data.response[i].population;
-    colmn[4]=data.response[i].cases.new;
-    colmn[5]=data.response[i].cases.active;
-    colmn[6]=data.response[i].cases.critical;
-    colmn[7]=data.response[i].cases.recovered;
-    colmn[8]=data.response[i].cases.total;
-    colmn[9]=data.response[i].day;
-    colmn[10]=data.response[i].deaths.new;
-    colmn[11]=data.response[i].deaths.total;
-   colmn[12]=data.response[i].tests.total;
-			var tr=document.createElement("tr"); //create a table where the data will be
-          for(var u=0;u<13;u++){
-		var colmnData=colmn[u];
-		var td=document.createElement("td");
-		var dataInTable=document.createTextNode(colmnData);
-		td.appendChild(dataInTable);
-		tr.appendChild(td);
-		document.getElementById('table').appendChild(tr);
-		}}
-}
-   
-   //here is the function that get the data from the api as the api itself is has many objects properties
+  <title>404error</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  
-	</script>
-</body>
-</html>
-<!--fetch("https://covid-193.p.rapidapi.com/countries", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "covid-193.p.rapidapi.com",
-		"x-rapidapi-key": "5e4331f760mshe0ce5b3e2ed365fp1cf19cjsn3ca0dcdb9d67"
-	}
-})
-.then(response => {
-	console.log(response);
-})
-.catch(err => {
-	console.log(err);
-});
+	<title>quiz app</title>
+</head>
+<body>
+	<style type="text/css">
+		a{width: all;
+			margin-top: 5px
+		}
+	    li{text-align: center;}
+		.btn{margin-left: 12px;
+			padding:11px;}
+		ul{margin-top: 11px}
+		.pagination{padding-top: 22px;
+		}
+		.form-check{font-size: 22px}
+		input[type='radio']{
+			width: 33px;
+			}
+         .container{padding: 9px}
+		
+	</style>
+<div class="container">
+	<div class="container questions" id="allquestions">
+	 <div class="container pt-3 questions" id="questions">
+    <p id="counter"></p>
+  <form id="quest">
+   
+  
+  </form>
+</div>
+</div>
+	<div class="container">
+		<button class="btn btn-primary" onclick="Previous()">Previous</button>
+		<button class="btn btn-primary" onclick="Next()">Next</button>
+		<button class="btn btn-danger" onclick="marking()">Submit</button>
+		<ul class="pagination row" id="goto">
 
+        </ul>
+	</div>
+</div>
 
+	
+</script>
+<script type="text/javascript">
+var data;
+		fetch("https://questions.aloc.com.ng/api/v2/m?subject=mathematics", { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', 'AccessToken': 'ALOC-d31727d680059a2b635e' }, method: "GET", }) .then(function (response) {
+                return response.json();}).then(function(respond){ console.log(respond)
+                	data=respond.data
+             }) .catch(function(res){ console.log(res) })
+        
+
+counter={index:0,}
+	console.log(data);
+
+  const p = document.createElement("h3");
+  p.setAttribute('class', `question-item`);
+  p.setAttribute('data-key', data[1].id);
+  p.innerHTML = data[1].question+'<br>'
+  document.getElementById('questions').appendChild(p)
+  var options=['a','b','c','d']
+  for(index in options){
+  radioOption=data[1].option[options[index]]
+  input = document.createElement("input");
+  input.setAttribute('class', `form-check-input`);
+  input.setAttribute('type', `radio`);
+  input.setAttribute('name', data[1].id);
+  input.setAttribute('value', radioOption);
+  div=document.createElement('div')
+  div.setAttribute('class', `form-check`)
+  input.setAttribute('class', `form-check-input`)
+  label=document.createElement('label')
+  labelText=document.createTextNode(radioOption)
+  label.appendChild(labelText)
+  div.appendChild(input)
+  div.appendChild(label)
+  document.getElementById('questions').appendChild(div)
+}
