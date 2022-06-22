@@ -48,7 +48,8 @@
 		.question,footer{
 			border: 1px solid white}
 			.fa{font-size: 30px;
-				margin: 5px}
+				margin: 5px;
+				color: white}
 	</style>
 <div class=" allpage">
 	<h2 id="heading" class="text-center h1">
@@ -98,8 +99,6 @@
 	</div>
 </footer>
 	
-<script type="text/javascript" src="quizapp.js"></script>
-
 <script type="text/javascript">
 
 
@@ -213,14 +212,15 @@ var counter={questIndex:1,gotoIndex:0,
 userAnswers:new Array(),answers:new Array(),
 correct:0}
 var all_radio =document.getElementsByClassName('form-check-input')
+subject=prompt('enter subject')
 var data;
-	/*fetch("https://questions.aloc.com.ng/api/v2/m?subject="+subject, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', 'AccessToken': 'ALOC-d31727d680059a2b635e' }, method: "GET", }) .then(function (response) {
+	fetch("https://questions.aloc.com.ng/api/v2/m?subject="+subject, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', 'AccessToken': 'ALOC-d31727d680059a2b635e' }, method: "GET", }) .then(function (response) {
                return response.json();}).then(function(respond){ 
             	data=respond.data
             	console.log(data)
             	start(data)
              }) .catch(function(res){ console.log(res) })
-        */
+        
 start(data)
 function start(data){
 data.map(appendD)
