@@ -10,58 +10,320 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- 
+ <style type="text/css">
+   
+  #accordion{width: 80%;
+    margin-bottom: 9px;}
+  .header{background: seagreen;
+    color: white;
+    padding:16px}
+
+    .fa{color: blue}
+    .card-header{background: #999999;
+      color: white}
+    .card-header:hover{background: seagreen}
+    a.btn{color: white}
+    .body{padding-top: 22px;}
+ </style>
 </head>
 <body>
 
-<div class="container mt-3">
-  <h2>Accordion Example</h2>
-  <p><strong>Note:</strong> The <strong>data-bs-parent</strong> attribute makes sure that all collapsible elements under the specified parent will be closed when one of the collapsible item is shown.</p>
-  <div id="accordion">
+<div class="header text-center fixed-top" >
+  <h3>Maxwiz Jamb CBT Practice</h3>
+</div>
+<div class="container mt-3 body">
+  <h2 class="text-center">Jamb CBT Practice 2023</h2>
+  <p class="text-center">
+
+Welcome to wizard Free Online Jamb CBT Practice platform…
+</p><p class="text-center">
+Hey guys, Maxwizard is wishing all the best in your Exams!</p>
+
+  <
+  <div id="accordion" class="container">
+    <h2>Select cbt subject below to begin!</h2>
     <div class="card">
       <div class="card-header">
         <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
-          Collapsible Group Item #1
+        English<i class="fa fa-glyphicon"></i>
         </a>
       </div>
       <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
         <div class="card-body">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </div>
+<p>
+           English – Jamb CBT<br>
+           Time limit: 30min<br>
+           Quiz of 40 questions from different topics in different years </p>
+           <button class="btn btn-primary"> start</button>
+             <p class="social "> 
+            Share:
+           <a class="btn-floating btn btn-tw" type="button" role="button" title="Share on facebook"
+   href="https://www.facebook.com/sharer/sharer.php?u=https://" target="_blank"
+   rel="noopener">
+  <i class="fa fa-2x fa-facebook-square"></i>
+</a>
+    <a class="btn-floating btn btn-tw" type="button" role="button" title="Share on twitter"
+   href="https://twitter.com/intent/tweet?url=https://"
+   rel="noopener">
+  <i class="fa fa-2x fa-twitter-square"></i>
+</a>
+        </p> 
       </div>
     </div>
+
     <div class="card">
       <div class="card-header">
         <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseTwo">
-        Collapsible Group Item #2
+        Mathamatics
       </a>
       </div>
       <div id="collapseTwo" class="collapse" data-bs-parent="#accordion">
         <div class="card-body">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+<p>
+           Mathematics – Jamb CBT<br>
+           Time limit: 30min<br>
+           Quiz of 40 questions from different topics in different years </p>
+           <button class="btn btn-primary"> start</button>
+             <p class="social "> 
+            Share:
+           <a class="btn-floating btn btn-tw" type="button" role="button" title="Share on facebook"
+   href="https://www.facebook.com/sharer/sharer.php?u=https://" target="_blank"
+   rel="noopener">
+  <i class="fa fa-2x fa-facebook-square"></i>
+</a>
+    <a class="btn-floating btn btn-tw" type="button" role="button" title="Share on twitter"
+   href="https://twitter.com/intent/tweet?url=https://"
+   rel="noopener">
+  <i class="fa fa-2x fa-twitter-square"></i>
+</a>
+        </p> 
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">
+          Chemistry
+        </a>
+      </div>
+      <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
+        <div class="card-body">
+<p>
+           Chemistry – Jamb CBT<br>
+           Time limit: 30min<br>
+           Quiz of 40 questions from different topics in different years </p>
+           <button class="btn btn-primary"> start</button>
+             <p class="social "> 
+            Share:
+           <a class="btn-floating btn btn-tw" type="button" role="button" title="Share on facebook"
+   href="https://www.facebook.com/sharer/sharer.php?u=https://" target="_blank"
+   rel="noopener">
+  <i class="fa fa-2x fa-facebook-square"></i>
+</a>
+    <a class="btn-floating btn btn-tw" type="button" role="button" title="Share on twitter"
+   href="https://twitter.com/intent/tweet?url=https://"
+   rel="noopener">
+  <i class="fa fa-2x fa-twitter-square"></i>
+</a>
+        </p> 
+        </div>
+      </div>
+    </div>
+    
+    <div class="card">
+      <div class="card-header" href="#collapseFour">
+        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseFour">
+          Biology
+        </a>
+      </div>
+      <div id="collapseFour" class="collapse" data-bs-parent="#accordion">
+        <div class="card-body">
+<p>
+           Biology – Jamb CBT<br>
+           Time limit: 30min<br>
+           Quiz of 40 questions from different topics in different years </p>
+           <button class="btn btn-primary"> start</button>
+             <p class="social "> 
+            Share:
+           <a class="btn-floating btn btn-tw" type="button" role="button" title="Share on facebook"
+   href="https://www.facebook.com/sharer/sharer.php?u=https://" target="_blank"
+   rel="noopener">
+  <i class="fa fa-2x fa-facebook-square"></i>
+</a>
+    <a class="btn-floating btn btn-tw" type="button" role="button" title="Share on twitter"
+   href="https://twitter.com/intent/tweet?url=https://"
+   rel="noopener">
+  <i class="fa fa-2x fa-twitter-square"></i>
+</a>
+        </p> 
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseFive">
+          Commerce
+        </a>
+      </div>
+      <div id="collapseFive" class="collapse" data-bs-parent="#accordion">
+        <div class="card-body">
+          <p>
+           Commerce – Jamb CBT<br>
+           Time limit: 30min<br>
+           Quiz of 40 questions from different topics in different years </p>
+           <button class="btn btn-primary"> start</button>
+             <p class="social "> 
+            Share:
+           <a class="btn-floating btn btn-tw" type="button" role="button" title="Share on facebook"
+   href="https://www.facebook.com/sharer/sharer.php?u=https://" target="_blank"
+   rel="noopener">
+  <i class="fa fa-2x fa-facebook-square"></i>
+</a>
+    <a class="btn-floating btn btn-tw" type="button" role="button" title="Share on twitter"
+   href="https://twitter.com/intent/tweet?url=https://"
+   rel="noopener">
+  <i class="fa fa-2x fa-twitter-square"></i>
+</a>
+        </p> 
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseSix">
+          Economics
+        </a>
+      </div>
+      <div id="collapseSix" class="collapse" data-bs-parent="#accordion">
+        <div class="card-body">
+<p>
+           Economics – Jamb CBT<br>
+           Time limit: 30min<br>
+           Quiz of 40 questions from different topics in different years </p>
+           <button class="btn btn-primary"> start</button>
+             <p class="social "> 
+            Share:
+           <a class="btn-floating btn btn-tw" type="button" role="button" title="Share on facebook"
+   href="https://www.facebook.com/sharer/sharer.php?u=https://" target="_blank"
+   rel="noopener">
+  <i class="fa fa-2x fa-facebook-square"></i>
+</a>
+    <a class="btn-floating btn btn-tw" type="button" role="button" title="Share on twitter"
+   href="https://twitter.com/intent/tweet?url=https://"
+   rel="noopener">
+  <i class="fa fa-2x fa-twitter-square"></i>
+</a>
+        </p> 
+           
         </div>
       </div>
     </div>
     <div class="card">
       <div class="card-header">
-        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseThree">
-          Collapsible Group Item #3
+        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseSeven">
+          History
         </a>
       </div>
-      <div id="collapseThree" class="collapse" data-bs-parent="#accordion">
+      <div id="collapseSeven" class="collapse" data-bs-parent="#accordion">
         <div class="card-body">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+<p>
+           History – Jamb CBT<br>
+           Time limit: 30min<br>
+           Quiz of 40 questions from different topics in different years </p>
+           <button class="btn btn-primary"> start</button>
+             <p class="social "> 
+            Share:
+           <a class="btn-floating btn btn-tw" type="button" role="button" title="Share on facebook"
+   href="https://www.facebook.com/sharer/sharer.php?u=https://" target="_blank"
+   rel="noopener">
+  <i class="fa fa-2x fa-facebook-square"></i>
+</a>
+    <a class="btn-floating btn btn-tw" type="button" role="button" title="Share on twitter"
+   href="https://twitter.com/intent/tweet?url=https://"
+   rel="noopener">
+  <i class="fa fa-2x fa-twitter-square"></i>
+</a>
+        </p> 
+           
         </div>
       </div>
     </div>
-  </div>
-</div>
-    <a class="btn-floating btn btn-tw" type="button" role="button" title="Share on facebook"
-   href="https://www.facebook.com/sharer/sharer.php?u=https://maxwizardth.github.io/live-score/share.html" target="_blank"
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseEight">
+          Geography
+        </a>
+      </div>
+      <div id="collapseEight" class="collapse" data-bs-parent="#accordion">
+        <div class="card-body">
+<p>
+           Geography – Jamb CBT<br>
+           Time limit: 30min<br>
+           Quiz of 40 questions from different topics in different years </p>
+           <button class="btn btn-primary"> start</button>
+             <p class="social "> 
+            Share:
+           <a class="btn-floating btn btn-tw" type="button" role="button" title="Share on facebook"
+   href="https://www.facebook.com/sharer/sharer.php?u=https://" target="_blank"
    rel="noopener">
-  <i class="fab fa-2x fa-facebook-square"></i>
+  <i class="fa fa-2x fa-facebook-square"></i>
 </a>
+    <a class="btn-floating btn btn-tw" type="button" role="button" title="Share on twitter"
+   href="https://twitter.com/intent/tweet?url=https://"
+   rel="noopener">
+  <i class="fa fa-2x fa-twitter-square"></i>
+</a>
+        </p> 
+           
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <a class="collapsed btn" data-bs-toggle="collapse" href="#collapseNine">
+          Government
+        </a>
+      </div>
+      <div id="collapseNine" class="collapse" data-bs-parent="#accordion">
+        <div class="card-body">
+<p>
+           Government – Jamb CBT<br>
+           Time limit: 30min<br>
+           Quiz of 40 questions from different topics in different years </p>
+           <button class="btn btn-primary"> start</button>
+             <p class="social "> 
+            Share:
+           <a class="btn-floating btn btn-tw" type="button" role="button" title="Share on facebook"
+   href="https://www.facebook.com/sharer/sharer.php?u=https://" target="_blank"
+   rel="noopener">
+  <i class="fa fa-2x fa-facebook-square"></i>
+</a>
+    <a class="btn-floating btn btn-tw" type="button" role="button" title="Share on twitter"
+   href="https://twitter.com/intent/tweet?url=https://"
+   rel="noopener">
+  <i class="fa fa-2x fa-twitter-square"></i>
+</a>
+        </p>
+         
+      </div>
+    </div>
+  </div>
+
+</div>
+    
+<script type="text/javascript">
+  const card = document.querySelectorAll('.card-header');
+  for (var index=0;index<card.length;index++){
+card[index].addEventListener('click', event => {
+  event.target.firstElementChild.click()
+  })}
+
+</script>
 </body>
 
-<!-- Mirrored from www.w3schools.com/bootstrap5/tryit.asp?filename=trybs_collapsible_accordion&stacked=h by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 09 Jun 2022 22:56:07 GMT -->
 </html>
