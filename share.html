@@ -12,7 +12,7 @@
    
   #accordion{width: 100%;
     margin-bottom: 9px;}
-  .header{background: #553399;
+  .header{background: #2233a9;
     color: white;
     padding:16px;
     height: 10%}
@@ -20,12 +20,14 @@
     .fa{color: blue}
     .card-header{background: #999999;
       color: white}
-    .card-header:hover{background: seagreen}
+    .card-header:hover{background:  #3355aa;
+      color: white
+      }
     a.btn{color: white}
     .body{padding-top:8%;
       margin-top: 15px}
     footer{padding: 12px;
-      background: #553399;;
+      background: #5566aa;;
       color: white
     }
     .logo{margin-left: 5px;
@@ -64,8 +66,9 @@
         margin-bottom: 11px;}
         .subject{display: none;}
         
-  #myModal{background: #331188; 
-    background:-webkit-linear-gradient(60deg, #222399,white,#123456);
+  #myModal{padding: 26px;
+    background: #331188; 
+    background:-webkit-linear-gradient(60deg, #222399,white,#223399);
     
 }
 .modal-content{background: #333399;
@@ -568,7 +571,7 @@ Hey guys, Maxwizard is wishing all the best in your Exams!</p>
      <div class="container">
     <button class="btn btn-secondary btn-sm" onclick="previous()">Previous</button>
     <button class="btn btn-secondary btn-sm" onclick="nextQuest()">Next</button>
-    <button type="button" class="btn btn-danger btn-sm" id='submitbtn' data-bs-toggle="modal" data-bs-target="#myModal" onclick="marking()">
+    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" id="submitbtn" data-bs-target="#myModal" onclick="marking()">
     Submit
   </button>
   <!-- The Modal -->
@@ -819,4 +822,3 @@ function swapSubject(subject){
 </body>
 
 </html>
-<!--
