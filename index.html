@@ -12,7 +12,7 @@
    
   #accordion{width: 100%;
     margin-bottom: 9px;}
-  .header{background: #553399;
+  .header{background: #2233a9;
     color: white;
     padding:16px;
     height: 10%}
@@ -20,12 +20,14 @@
     .fa{color: blue}
     .card-header{background: #999999;
       color: white}
-    .card-header:hover{background: seagreen}
+    .card-header:hover{background:  #3355aa;
+      color: white
+      }
     a.btn{color: white}
     .body{padding-top:8%;
       margin-top: 15px}
     footer{padding: 12px;
-      background: #553399;;
+      background: #5566aa;;
       color: white
     }
     .logo{margin-left: 5px;
@@ -34,7 +36,7 @@
       h3{font-family: sans-serif;}
       .info{margin-top: 10px;}
      
-      @media only screen and (max-width: 500px) {
+      @media only screen and (max-width: 750px) {
     .pagination {
         display: none;
     }
@@ -63,6 +65,19 @@
       .progress{border-radius: 22px;
         margin-bottom: 11px;}
         .subject{display: none;}
+        
+  #myModal{padding: 26px;
+    background: #331188; 
+    background:-webkit-linear-gradient(60deg, #222399,white,#223399);
+    height: 80%;
+    
+}
+.modal-content{background: #333399;
+text-align: center;
+color: white}
+.modal-title{margin-left: 25px;}
+#Again a{color: white}
+#Again{margin-right: 20px}
  </style>
 </head>
 <body>
@@ -553,11 +568,49 @@ Hey guys, Maxwizard is wishing all the best in your Exams!</p>
 </p>
      </form>
      </div>
+
      <div class="container">
     <button class="btn btn-secondary btn-sm" onclick="previous()">Previous</button>
     <button class="btn btn-secondary btn-sm" onclick="nextQuest()">Next</button>
-    <button class="btn btn-danger btn-sm" onclick="marking()" id="submitbtn">Submit</button>
+   
+    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" id="submitbtn" data-bs-target="#myModal" onclick="show_wrong()">
+    Submit
+  </button>
+  <!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content text-center">
+
+      <!-- Modal Header -->
+      <div class="modal-header text-center">
+        <h4 class="modal-title" id="modalTitle">YOUR RESULT</h4>
+        <button type="button" class="btn-close btn-danger" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <h3 class="text-center">Congratulations!!</h3>
+        <p>You have completed the quiz</p>
+        <hr>
+        <h6 class="text-center">Result</h6>
+        <hr>
+        <h4 id="yourScore"></h4>
+      </div>
+     
+      <!-- Modal footer -->
+
+      <div class="modal-footer">
+        <div id="Again"><a href="" onclick="location.reload()">Take Quiz Again</a></div>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
     <div><p class="text-center"><a href="" onclick="location.reload()">Change Subject</a></p></div>
+
     <ul class="pagination row" id="goto">
 
         </ul>
@@ -573,7 +626,7 @@ Hey guys, Maxwizard is wishing all the best in your Exams!</p>
       <a href="https://web.facebook.com/abdullahi.oladejo.10"><i class="fa fa-facebook-square logo" aria-hidden="true"></i></a>
       <a href=""><i class="fa fa-whatsapp logo" aria-hidden="true"></i></a>
       <a href="https://twitter.com/oladejoabdulla7"><i class="fa fa-twitter logo" aria-hidden="true"></i></a>
-       <a href=""><i class="fa fa-instagram logo" aria-hidden="true"></i></a>
+       <a href="https://www.instagram.com/maxwizardth/"><i class="fa fa-instagram logo" aria-hidden="true"></i></a>
       <a href=""><i class="fa fa-linkedin-square logo" aria-hidden="true"></i></a>
        <a href="https://github.com/maxwizardth"><i class="fa fa-github logo" aria-hidden="true"></i></a>
         <h6>Call Hours: 9am-9pm (Mon-Fri)</h6>
@@ -590,8 +643,7 @@ Hey guys, Maxwizard is wishing all the best in your Exams!</p>
 const card = document.querySelectorAll('.card-header');
   for (var index=0;index<card.length;index++){
 card[index].addEventListener('click', event => {
-  counter.subject=event.target.firstElementChild.textContent.trim()
-  event.target.firstElementChild.click()
+    event.target.firstElementChild.click()
   })}
 
 //functionn to append the data on elements
@@ -664,8 +716,9 @@ function previous(argument) {
       user_answer=all_radio[i].dataset.key;
       counter.userAnswers[UserQuest_no]=user_answer;
       counter.answers[UserQuest_no]=data[UserQuest_no].answer;
+      //changing background color of pagination to green
       li=document.getElementsByClassName('page-link');
-      li[UserQuest_no].style.backgroundColor='seaGreen';
+      li[UserQuest_no].style.backgroundColor='#333399';
       li[UserQuest_no].style.color='white';
     }
   }}
@@ -673,14 +726,14 @@ function previous(argument) {
 //function to create pagination buttons to goto respective question.
 function createPagination() {
     var ul=document.getElementById('goto')
-    ul.innerHTML=''
+    ul.innerHTML=''//clear all initial elements
     for(var i=1;i<41;i++){
     li=document.createElement('li');
     li.setAttribute('class',"page-item col-sm-1 text-center");
     a=document.createElement('a');
     a.setAttribute('class',"page-link text-center");
     a.setAttribute('href',"#");
-    start=eval(i-1);
+    start=eval(i-1);//function of each pagination
     go='active_question('+start+')';
     a.setAttribute('onclick',go)
     number=document.createTextNode(i);
@@ -689,34 +742,41 @@ function createPagination() {
     ul.appendChild(li)}
     }
  
-
-function show_wrong() {         
+//function to show the wrong and correct option
+function show_wrong() {  
+   
   for (var i = 0; i < all_radio.length; i++) {
     num=all_radio[i].name-1;
-    
-    if((all_radio[i].checked&&counter.answers[num]!=counter.userAnswers[num])|(!(all_radio[i].checked)&&counter.answers[num]==all_radio[i].dataset.key))
-        {all_radio[i].parentNode.style.background='red';
-      all_radio[i].parentNode.style.color='white';}
+    option=  all_radio[i].parentNode
+     if(all_radio[i].checked&&counter.answers[num]!=all_radio[i].dataset.key)
+        {option.style.background='red';
+         option.style.color='white';}
+    if(counter.answers[num]==all_radio[i].dataset.key)
+      {   
+      option.style.backgroundColor='#223399';
+      option.style.color='white';
+      }
     if(counter.answers[num]==all_radio[i].dataset.key&&all_radio[i].checked)
       {   
-        all_radio[i].parentNode.style.backgroundColor='seaGreen';
-        all_radio[i].parentNode.style.color='white';
+        option.style.backgroundColor='#223399';
+        option.style.color='white';
+        counter.correct+=1
       }
     }
+    document.getElementById('yourScore').innerHTML='You scored <br>'+counter.correct+'/40';
+    document.getElementById('submitbtn').style.display='none';
+
     }
 
-function marking() {
-  show_wrong()
-}
 var counter={questIndex:1,gotoIndex:0,
 userAnswers:new Array(),answers:new Array(),
 correct:0,subject:'english'}
 var all_radio =document.getElementsByClassName('form-check-input')
 
-var data;
+var data=data;
 function quiz(subject) {
-
    subject=subject
+   //change the subject first character to Uppercase
    subjHead=subject.charAt(0).toUpperCase()+subject.slice(1)
    document.getElementById('currentSubject').innerHTML=subjHead+'-Jamb CBT'
   fetch("https://questions.aloc.com.ng/api/v2/m?subject="+subject, { headers: { 'Accept': 'application/json', 'Content-Type': 'application/json', 'AccessToken': 'ALOC-d31727d680059a2b635e' }, method: "GET", }) .then(function (response) {
@@ -743,27 +803,35 @@ element.addEventListener('click',()=>{clearInterval(timeDisplay)})
  
 //Time keeping codes
  function timer(){
+  //getting the minutes and seconds 
   var minute=Number(document.getElementById('minute').value)
   var seconds=Number(document.getElementById('seconds').value)
+  //check wether time is over
+  if(minute==0&&seconds==1){document.getElementById('submitbtn').click();
+ document.getElementById('modalTitle').innerHTML='Your Time is Up'}
+ // calculating the width bar with respect to time left
   width=100*(minute*60+seconds)/1800
-
+    //convert minute to seconds
     if(seconds==0){var minute=minute-1;
     document.getElementById('seconds').value=59
     if(String(minute).length==1){minute='0'+String(minute)}
     document.getElementById('minute').value=minute}
-    else{seconds-=1;
+    else{seconds-=1
       if(seconds<10){seconds='0'+String(seconds)}
       document.getElementById('seconds').value=seconds}
-    document.getElementsByClassName('progress-bar')[0].style.width=width+'%'
+    progressBar=document.getElementsByClassName('progress-bar')[0];
+    progressBar.style.width=width+'%'
+    progressBar.style.backgroundColor=width<10?'red':'blue'
       } 
 
 
 function swapSubject(subject){
-  subject=subject
+  counter.subject=subject
   document.getElementsByClassName('home')[0].style.display='none'
   document.getElementsByClassName('subject')[0].style.display='block'
-  quiz(subject)
+  quiz(counter.subject)
 }
+
 </script>
 </body>
 
